@@ -12,12 +12,6 @@ var teamRouter = require("./routes/team");
 var app = express();
 app.use(cors());
 
-// Serve static files from the React frontend app
-// app.use(express.static(path.join(__dirname, "client/build"))); // Anything that doesn't match the above, send back index.html
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname + "/client/build/index.html"));
-// });
-
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
@@ -45,6 +39,12 @@ app.use(function (err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render("error");
+});
+
+// Serve static files from the React frontend app
+app.use(express.static(path.join(__dirname, "client/build"))); // Anything that doesn't match the above, send back index.html
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/client/build/index.html"));
 });
 
 mongoose
