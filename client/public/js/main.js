@@ -149,6 +149,7 @@ var animateElement = function (e) {
 var skillsFill = function () {
   $(".skill-fill").each(function (i) {
     $(this).width($(this).data("fill"));
+    console.log("Skills Fill Call");
   });
 };
 
@@ -329,11 +330,11 @@ function loadMemberContent(memberID) {
 
 var portfolioItemContentLoadOnClick = function () {
   $(".ajax-portfolio").on("click", function (e) {
+    console.log("On Click Call");
     e.preventDefault();
     var portfolioItemID = $(this).data("id");
     $(this).addClass("animate-plus");
     if ($("#pcw-" + portfolioItemID).length) {
-      console.log("Length is:" + $("#pcw-" + portfolioItemID).length);
       //Check if is allready loaded
       $("html, body").animate(
         { scrollTop: $("#portfolio-wrapper").offset().top - 150 },
@@ -389,6 +390,7 @@ function loadPortfolioItemContent(portfolioItemID) {
             $(".ajax-portfolio").removeClass("animate-plus");
             $("#portfolio-grid").hide();
           }, 300);
+
           $(".close-icon").on("click", function (e) {
             var portfolioReturnItemID = $(this)
               .closest(".portfolio-content-wrapper")
