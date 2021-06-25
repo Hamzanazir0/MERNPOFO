@@ -48,10 +48,13 @@ app.use(function (err, req, res, next) {
 });
 
 mongoose
-  .connect("mongodb://localhost/myReactPortfolio", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(
+    "mongodb+srv://hamza:jnz3TYgc4QYvIZsv@myfirstcluster.aqbfk.mongodb.net/MERNPOFO?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
   .then(() => {
     console.log("Database Connected");
   })

@@ -279,7 +279,7 @@ function loadMemberContent(memberID) {
           getHtml +
           "</div>"
       );
-      
+
       if (!$("#mcw-" + memberID + " .close-icon").length) {
         $("#mcw-" + memberID).prepend('<div class="close-icon"></div>');
       }
@@ -333,6 +333,7 @@ var portfolioItemContentLoadOnClick = function () {
     var portfolioItemID = $(this).data("id");
     $(this).addClass("animate-plus");
     if ($("#pcw-" + portfolioItemID).length) {
+      console.log("Length is:" + $("#pcw-" + portfolioItemID).length);
       //Check if is allready loaded
       $("html, body").animate(
         { scrollTop: $("#portfolio-wrapper").offset().top - 150 },
@@ -354,7 +355,6 @@ var portfolioItemContentLoadOnClick = function () {
 };
 
 function loadPortfolioItemContent(portfolioItemID) {
-
   $.ajax({
     url: $('.ajax-portfolio[data-id="' + portfolioItemID + '"]').attr("href"),
     type: "GET",
@@ -367,11 +367,11 @@ function loadPortfolioItemContent(portfolioItemID) {
           getPortfolioItemHtml +
           "</div>"
       );
-      
+
       if (!$("#pcw-" + portfolioItemID + " .close-icon").length) {
         $("#pcw-" + portfolioItemID).prepend('<div class="close-icon"></div>');
       }
-      
+
       $("html, body").animate(
         { scrollTop: $("#portfolio-wrapper").offset().top - 150 },
         400

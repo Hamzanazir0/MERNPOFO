@@ -10,11 +10,10 @@ router.get("/", async (req, res, next) => {
   return res.send(team);
 });
 
-
 //Insert a record
 router.post("/", async (req, res) => {
   let team = new teamModel();
-  team.name = req.body.name;
+  team.Thref = req.body.Thref;
   await team.save();
   return res.send(team);
 });
