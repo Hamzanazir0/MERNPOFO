@@ -121,21 +121,6 @@ const Services = () => {
                       </div>
                     </a>
                   </div>
-
-                  <div id="p-item-6" className="grid-item element-item p_one">
-                    <a
-                      className="item-link ajax-portfolio"
-                      href="portfolio-6.html"
-                      // data-rel="prettyPhoto[portfolio]"
-                      data-id="6"
-                    >
-                      <img src="images/Ads/1.jpg" alt="" />
-                      <div className="portfolio-text-holder">
-                        <p className="portfolio-title">ADS DESIGN</p>
-                        <p className="portfolio-desc">LIST OF ADS DESIGNED</p>
-                      </div>
-                    </a>
-                  </div>
                 </div>
                 <div className="clear"></div>
               </div>
