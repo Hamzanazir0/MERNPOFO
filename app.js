@@ -16,6 +16,12 @@ app.use(cors());
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 
+// Serve static files from the React frontend app
+app.use(express.static(path.join(__dirname, "client/build"))); // Anything that doesn't match the above, send back index.html
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/client/build/index.html"));
+});
+
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -39,12 +45,6 @@ app.use(function (err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render("error");
-});
-
-// Serve static files from the React frontend app
-app.use(express.static(path.join(__dirname, "client/build"))); // Anything that doesn't match the above, send back index.html
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/client/build/index.html"));
 });
 
 mongoose
